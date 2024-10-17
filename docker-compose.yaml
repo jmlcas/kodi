@@ -1,7 +1,7 @@
 services:
 
   kodi-mariadb:
-    image: mariadb    #linuxserver/mariadb
+    image: mariadb:latest
     container_name: kodi-mariadb
     environment:
       - PUID=1000
@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
 
   kodi-headless:
-    image: matthuisman/kodi-headless:       #Omega
+    image: matthuisman/kodi-headless:Omega
     container_name: kodi-headless
     environment:
       - PUID=1000
