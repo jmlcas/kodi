@@ -15,7 +15,7 @@ services:
     restart: unless-stopped
 
   kodi-headless:
-    image: matthuisman/kodi-headless:Nexus      # Omega
+    image: matthuisman/kodi-headless:Omega
     container_name: kodi-headless
     environment:
       - PUID=1000
@@ -28,12 +28,10 @@ services:
     volumes:
       - ./kodi/:/config/.kodi
     ports:
-      - 8200:8080
-      - 9090:9090
-      - 9777:9777/udp
+      - "8200:8080"
+      - "9090:9090"
+      - "9777:9777/udp"
     depends_on:
       - kodi-mariadb
     restart: unless-stopped
-
-
 
