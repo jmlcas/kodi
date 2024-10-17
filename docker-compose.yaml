@@ -1,37 +1,20 @@
 services:
 
-  kodi-mariadb:
-    image: mariadb:latest
-    container_name: kodi-mariadb
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - MYSQL_ROOT_PASSWORD=kodi
-      - TZ=Europe/Madrid
-    volumes:
-      - ./mariadb:/config
-    ports:
-      - "3306:3306"
-    restart: unless-stopped
-
-  kodi-headless:
-    image: matthuisman/kodi-headless:Omega
-    container_name: kodi-headless
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - MYSQL_HOST=kodi-mariadb
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=kodi
-      - KODI_DELAY=10
-      - TZ=Europe/Madrid
-    volumes:
-      - ./kodi/:/config/.kodi
-    ports:
-      - "8200:8080"
-      - "9090:9090"
-      - "9777:9777/udp"
-    depends_on:
-      - kodi-mariadb
-    restart: unless-stopped
+  kodi:
+   image: fhriley/kodi-headless-novnc:Omega
+   restart: unless-stopped
+   init: true
+   ports:
+     - "5900:5900/tcp"
+     - "8100:8000/tcp"
+     - "8180:8080/tcp"
+     - "9190:9090/tcp"
+     - "9177:9777/udp"
+   environment:
+     KODI_DB_HOST: 192.168.1.90
+     KODI_DB_USER: user
+     KODI_DB_PASS: password
+     TZ: Europe/Madrid
+   volumes:
+     - ./kodi_data:/data
 
