@@ -1,8 +1,17 @@
 # kodi
 
-La GUI de Kodi está disponible en un navegador web en el puerto 8100
+Ports:
 
-o mediante VNC en el puerto 5900. 
+Port	Description
 
-Esto significa que no necesitas un segundo Kodi "real" en ejecución para configurar todo.
+5900/tcp	VNC (Kodi GUI)
+
+8100/tcp	noVNC HTTP (Kodi GUI)
+
+8180/tcp	webui
+
+9190/tcp	websockets
+
+9177/udp	esall interface
+
 
