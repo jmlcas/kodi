@@ -2,8 +2,6 @@
 
 Ports:
 
-Port	Description
-
 5900/tcp	VNC (Kodi GUI)
 
 8100/tcp	noVNC HTTP (Kodi GUI)
