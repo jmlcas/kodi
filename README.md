@@ -1,4 +1,9 @@
-# kodi
+# Kodi
+
+Ver en "http://localhost:8100"
+
+Ver en "http://localhost:8180"
+
 
 Ports:
 
